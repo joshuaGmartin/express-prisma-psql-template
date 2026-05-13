@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "express-prisma-psql-template",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joshuaGmartin/template.git"
+    "url": "git+https://github.com/joshuaGmartin/express-prisma-psql-template.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joshuaGmartin/template/issues"
+    "url": "https://github.com/joshuaGmartin/express-prisma-psql-template/issues"
   },
-  "homepage": "https://github.com/joshuaGmartin/template#readme",
+  "homepage": "https://github.com/joshuaGmartin/express-prisma-psql-template#readme",
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
