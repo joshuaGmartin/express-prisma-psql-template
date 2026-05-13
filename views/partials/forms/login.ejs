@@ -1,0 +1,36 @@
+<form
+  action="/login"
+  method="post"
+  class="top-spacing-xl column align-center gap"
+>
+  <h2>Login</h2>
+  <%- include("../errors") %>
+  <label for="username" class="column"
+    >Username<input
+      type="text"
+      name="username"
+      id="username"
+      value="<%= locals.values?.username %>"
+      required
+  /></label>
+  <label for="password" class="column">
+    <div class="row just-space-between">
+      Password
+      <span id="show-password-button" class="unselectable show-clickable"
+        >Show</span
+      >
+    </div>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      value="<%= locals.values?.password %>"
+      required
+    />
+  </label>
+
+  <div class="column align-center gap-s">
+    <button type="submit">Login</button>
+    <button id="demo-password-button">Fill Demo Password</button>
+  </div>
+</form>
