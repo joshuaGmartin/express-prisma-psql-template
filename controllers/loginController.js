@@ -1,14 +1,14 @@
-const { body, validationResult } = require("express-validator");
-const passport = require("passport");
+import { body, validationResult } from "express-validator";
+import passport from "passport";
 
 const validateUser = [
   body("username").trim().notEmpty().withMessage("Must include username"),
   body("password").trim().notEmpty().withMessage("Must include password"),
 ];
 
-module.exports.getLogin = function (req, res) {
+export function getLogin(req, res) {
   res.render("login");
-};
+}
 
 const auth = (req, res, next) =>
   passport.authenticate("local", (err, user, info) => {
@@ -31,7 +31,7 @@ const auth = (req, res, next) =>
     });
   })(req, res, next); // passport.authenticate returns a function that needs to be called with wrapper function's (auth) parameters
 
-module.exports.postLogin = [
+export const postLogin = [
   validateUser,
   (req, res, next) => {
     // or

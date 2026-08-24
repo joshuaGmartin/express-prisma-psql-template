@@ -1,5 +1,6 @@
-const homeRouter = require("express").Router();
+import { Router } from "express";
+const homeRouter = Router();
 
 homeRouter.get("/", (req, res) => res.render("home"));
 
-module.exports = homeRouter;
+export default homeRouter;

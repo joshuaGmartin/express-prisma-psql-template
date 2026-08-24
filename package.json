@@ -1,5 +1,6 @@
 {
   "name": "express-prisma-psql-template",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",

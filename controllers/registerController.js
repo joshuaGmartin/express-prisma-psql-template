@@ -1,6 +1,6 @@
-const { body, matchedData, validationResult } = require("express-validator");
-const user = require("../models/user");
-const passwordUtil = require("../lib/passwordUtil");
+import { body, matchedData, validationResult } from "express-validator";
+import * as user from "../models/user.js";
+import * as passwordUtil from "../lib/passwordUtil.js";
 
 const validateUser = [
   body("username")
@@ -42,11 +42,11 @@ const validateUser = [
     }),
 ];
 
-module.exports.getRegister = function (req, res) {
+export function getRegister(req, res) {
   res.render("register");
-};
+}
 
-module.exports.postRegister = [
+export const postRegister = [
   validateUser,
   async function (req, res) {
     const errors = validationResult(req);

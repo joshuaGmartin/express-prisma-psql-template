@@ -1,10 +1,13 @@
-const express = require("express");
-require("dotenv").config();
+import express from "express";
+import "dotenv/config";
 
 // ==========================================================================
 // app
 // ==========================================================================
-const path = require("node:path");
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -16,10 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 // ==========================================================================
 // session
 // ==========================================================================
-const expressSession = require("express-session");
-const { PrismaPg } = require("@prisma/adapter-pg"); // For other db adapters, see Prisma docs
-const { PrismaClient } = require("./generated/prisma/client.js");
-const { PrismaSessionStore } = require("@quixo3/prisma-session-store");
+import expressSession from "express-session";
+import { PrismaPg } from "@prisma/adapter-pg"; // For other db adapters, see Prisma docs
+import { PrismaClient } from "./generated/prisma/client.js";
+import { PrismaSessionStore } from "@quixo3/prisma-session-store";
 
 const connectionString = `${process.env.DATABASE_URL}`;
 const adapter = new PrismaPg({ connectionString });
@@ -44,8 +47,8 @@ app.use(
 // ==========================================================================
 // authentication
 // ==========================================================================
-const passport = require("passport");
-require("./config/passport");
+import passport from "passport";
+import "./config/passport.js";
 app.use(passport.session());
 
 // ==========================================================================
@@ -69,9 +72,9 @@ app.use((req, res, next) => {
 // ==========================================================================
 // routes
 // ==========================================================================
-const routes = require("./routes");
+import router from "./routes/index.js";
 
-app.use(routes);
+app.use(router);
 
 // ==========================================================================
 // 404/errors
