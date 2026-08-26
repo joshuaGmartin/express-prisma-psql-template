@@ -1,14 +1,14 @@
 # Full-stack Express + Prisma + PostgreSQL Template
 
-## 1. Create repo from template
+## Create repo from template
 
 Click “Use this template” on GitHub and create your new repository.
 
-## 2. Install dependencies
+## Install dependencies
 
 `npm install`
 
-## 3. Create PostgreSQL database
+## Create PostgreSQL database
 
 Open PostgreSQL shell:  
 `psql`
@@ -19,7 +19,7 @@ Create database:
 Exit psql:  
 `\q`
 
-## 4. Create `.env` file (project root)
+## Create `.env` file (project root)
 
 Similar to:
 
@@ -28,27 +28,32 @@ DATABASE_URL="postgresql://username:password@localhost:5432/mydatabase"
 COOKIE_SECRET="secret_cookie"
 ```
 
-## 5. Run Prisma migrations
+## Run Prisma migrations
 
 `npx prisma migrate dev --name init`
 
-## 6. Generate Prisma client
+## Generate Prisma client
 
 `npx prisma generate`
 
-## 7. Update app configuration
+## Open prisma studio
 
-In `app.js`, set your app title:  
-`res.locals.appTitle = "appTitleGoesHere";`
+`npx prisma studio --config ./prisma.config.js`
 
-## 8. Update package metadata
+## Update app configuration
+
+- In `app.js`, set your app title:  
+  `res.locals.appTitle = "appTitleGoesHere";`
+- change source link to repo in views/partials/header.ejs
+
+## Update package metadata
 
 In `package.json`, update any placeholder with "express-prisma-psql-template" to the new repo name
 
-## 9. Update README
+## Update README
 
 Replace this README with project-specific documentation.
 
-## 10. Start development server
+##. Start development server
 
 `npm run dev`

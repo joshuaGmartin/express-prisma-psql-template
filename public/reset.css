@@ -91,5 +91,5 @@ a {
 
 /* 10. lists */
 ul {
-  padding-left: var(--padding);
+  padding-left: var(--spacing-m);
 }

@@ -3,14 +3,16 @@
 :root {
   --primary-color: black;
   --secondary-color: white;
-  --primary-bg: aquamarine;
-  --secondary-bg: plum;
+  --primary-bg: oklch(80.9% 0.105 251.813);
+  --secondary-bg: oklch(88.2% 0.059 254.128);
 
   --spacing-xs: 0.25rem;
   --spacing-s: 0.5rem;
-  --spacing: 1rem;
+  --spacing-m: 1rem;
   --spacing-l: 2rem;
   --spacing-xl: 5rem;
+
+  --global-min-width: 375px;
 
   color: var(--primary-color);
   font-family: Arial, Helvetica, sans-serif;
@@ -25,15 +27,21 @@ body {
   display: flex;
   flex-direction: column;
 
-  padding: 0 var(--spacing);
-
   background-color: var(--primary-bg);
+
+  min-width: var(--global-min-width);
+
+  > * {
+    padding: 0 var(--spacing-m);
+  }
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  background-color: var(--secondary-bg);
 
   position: sticky;
   top: 0;
@@ -65,6 +73,10 @@ main {
 /* Classes */
 /* ========================================================================== */
 
+.min-width-max-cont {
+  min-width: max-content;
+}
+
 .column {
   display: flex;
   flex-direction: column;
@@ -79,24 +91,85 @@ main {
   align-items: center;
 }
 
-.just-space-between {
+.just-center {
+  justify-content: center;
+}
+
+.just-space-bet {
   justify-content: space-between;
 }
+
+.top-spacing-m {
+  margin-top: var(--spacing-m);
+}
+.top-spacing-l {
+  margin-top: var(--spacing-l);
+}
+
 .top-spacing-xl {
   margin-top: var(--spacing-xl);
 }
 
-.gap {
-  gap: var(--spacing);
+.gap-m {
+  gap: var(--spacing-m);
 }
 
 .gap-s {
   gap: var(--spacing-s);
 }
 
+.gap-xs {
+  gap: var(--spacing-xs);
+}
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+.padding-top-s {
+  padding-top: var(--spacing-s);
+}
+
+.padding-bottom-s {
+  padding-bottom: var(--spacing-s);
+}
+
+.padding-left {
+  padding-left: var(--spacing-m);
+}
+
+.padding-right {
+  padding-right: var(--spacing-m);
+}
+
+.no-button-style {
+  background: none;
+  border: none;
+}
+
+.hover-white {
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+
+.no-shrink {
+  width: max-content;
+}
+
+.wrap {
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
 /* ========================================================================== */
 /* Special Classes */
 /* ========================================================================== */
+
+.instructions {
+  font-size: small;
+  font-style: italic;
+}
 
 .hide-link-style {
   appearance: none;
@@ -124,6 +197,26 @@ main {
 .show-clickable {
   &:hover {
     cursor: pointer;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.underline-hover {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.lucide {
+  color: var(--primary-color);
+
+  &:hover {
+    color: var(--secondary-color);
   }
 }
 
